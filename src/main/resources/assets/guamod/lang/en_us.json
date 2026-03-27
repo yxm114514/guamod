@@ -1,0 +1,13 @@
+{
+  "itemGroup.guamod": "Example Mod Tab",
+  "block.guamod.example_block": "Example Block",
+  "item.guamod.example_item": "Example Item",
+
+  "guamod.configuration.title": "gua Mod Configs",
+  "guamod.configuration.section.guamod.common.toml": "gua Mod Configs",
+  "guamod.configuration.section.guamod.common.toml.title": "gua Mod Configs",
+  "guamod.configuration.items": "Item List",
+  "guamod.configuration.logDirtBlock": "Log Dirt Block",
+  "guamod.configuration.magicNumberIntroduction": "Magic Number Text",
+  "guamod.configuration.magicNumber": "Magic Number"
+}
