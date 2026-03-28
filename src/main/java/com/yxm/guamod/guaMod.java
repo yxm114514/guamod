@@ -2,6 +2,8 @@ package com.yxm.guamod;
 
 import com.yxm.guamod.item.Moditems;
 import com.yxm.guamod.item.ZuanguaSword;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.item.*;
 import org.slf4j.Logger;
 
@@ -29,6 +31,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import com.yxm.guamod.sound.ModSounds;
 
 import static com.yxm.guamod.item.Moditems.ZUANGUA_SWORD;
 import static com.yxm.guamod.item.Moditems.Zuangua;
@@ -36,6 +39,7 @@ import static com.yxm.guamod.item.Moditems.Zuangua;
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(guaMod.MODID)
 public class guaMod {
+
     // Define mod id in a common place for everything to reference
     public static final String MODID = "guamod";
     // Directly reference a slf4j logger
@@ -47,7 +51,13 @@ public class guaMod {
     // Create a Deferred Register to hold CreativeModeTabs which will all be registered under the "guamod" namespace
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
 
+    // 在你的主类或一个专门的声音注册类中
+    public static final DeferredRegister<SoundEvent> SOUNDS =
+            DeferredRegister.create(Registries.SOUND_EVENT, guaMod.MODID);
 
+    public static final DeferredHolder<SoundEvent, SoundEvent> ATTACK_SOUND =
+            SOUNDS.register("attack_sound", () -> SoundEvent.createVariableRangeEvent(
+                    ResourceLocation.fromNamespaceAndPath(guaMod.MODID, "attack_sound")));
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // Creates a creative tab with the id "guamod:example_tab" for the example item, that is placed after the combat tab
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> guatab = CREATIVE_MODE_TABS.register("guatab", () -> CreativeModeTab.builder()
@@ -65,7 +75,7 @@ public class guaMod {
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
     public guaMod(IEventBus modEventBus, ModContainer modContainer) {
         // Register the commonSetup method for modloading
-        modEventBus.addListener(this::commonSetup);
+
 
         // Register the Deferred Register to the mod event bus so blocks get registered
         BLOCKS.register(modEventBus);
@@ -74,6 +84,9 @@ public class guaMod {
         // Register the Deferred Register to the mod event bus so tabs get registered
         CREATIVE_MODE_TABS.register(modEventBus);
         Moditems.ITEMS.register(modEventBus);
+        SOUNDS.register(modEventBus);
+        ModSounds.SOUNDS.register(modEventBus);
+        modEventBus.addListener(this::commonSetup);
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (guaMod) to respond directly to events.
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
@@ -84,6 +97,7 @@ public class guaMod {
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
@@ -105,7 +119,7 @@ public class guaMod {
            // event.accept(EXAMPLE_BLOCK_ITEM);
         }
     }
-
+   // SOUNDS.register(modEventBus);
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {

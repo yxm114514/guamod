@@ -1,0 +1,8 @@
+{
+  "attack_sound": {
+    "subtitle": "guamod.subtitle.attack_sound",
+    "sounds": [
+      "guamod:attack_sound"
+    ]
+  }
+}
