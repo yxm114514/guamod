@@ -202,6 +202,6 @@ repositories.each { repo ->
 
     }
 }
-processResources {
-    duplicatesStrategy = DuplicatesStrategy.INCLUDE
-}
+//processResources {
+//    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+//}
