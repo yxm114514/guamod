@@ -2,6 +2,7 @@ package com.yxm.guamod;
 
 import com.yxm.guamod.item.Moditems;
 import com.yxm.guamod.item.ZuanguaSword;
+import com.yxm.guamod.item.modfoods;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.item.*;
@@ -35,6 +36,7 @@ import com.yxm.guamod.sound.ModSounds;
 
 import static com.yxm.guamod.item.Moditems.ZUANGUA_SWORD;
 import static com.yxm.guamod.item.Moditems.Zuangua;
+import static com.yxm.guamod.item.modfoods.GOLDEN_GUA;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(guaMod.MODID)
@@ -66,6 +68,7 @@ public class guaMod {
             .icon(() -> Zuangua.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
                 output.accept(Zuangua);
+                output.accept(GOLDEN_GUA);
                 output.accept(ZUANGUA_SWORD);// Add the example item to the tab. For your own tabs, this method is preferred over the event
             }).build());
 
@@ -81,6 +84,7 @@ public class guaMod {
         BLOCKS.register(modEventBus);
         // Register the Deferred Register to the mod event bus so items get registered
         ITEMS.register(modEventBus);
+        modfoods.ITEMS.register(modEventBus);
         // Register the Deferred Register to the mod event bus so tabs get registered
         CREATIVE_MODE_TABS.register(modEventBus);
         Moditems.ITEMS.register(modEventBus);
