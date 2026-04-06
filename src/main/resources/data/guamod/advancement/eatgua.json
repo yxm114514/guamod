@@ -1,0 +1,37 @@
+{"parent": "guamod:root",
+  "display": {
+    "icon": {
+      "id": "guamod:golden_gua"
+    },
+    "title": {
+      "text": "瓜之美味",
+      "color": "gold"
+    },
+    "description": {
+      "text": "获得钻瓜，解锁eat的瓜的合成配方"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_netherite_sword": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "guamod:zuangua"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "recipes": [
+      "guamod:golden_gua_recipe"
+    ]
+  }
+}
