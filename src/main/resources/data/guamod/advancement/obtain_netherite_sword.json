@@ -1,7 +1,7 @@
-{
+{"parent": "guamod:root",
   "display": {
     "icon": {
-      "id": "minecraft:netherite_sword"
+      "id": "guamod:zuangua_sword"
     },
     "title": {
       "text": "瓜之力",

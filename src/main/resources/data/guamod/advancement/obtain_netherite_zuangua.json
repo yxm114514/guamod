@@ -1,14 +1,14 @@
-{
+{"parent": "guamod:root",
   "display": {
     "icon": {
-      "id": "minecraft:netherite_sword"
+      "id": "guamod:zuangua"
     },
     "title": {
       "text": "瓜？",
       "color": "gold"
     },
     "description": {
-      "text": "获得西瓜，解锁金瓜的合成配方"
+      "text": "获得西瓜，解锁钻瓜的合成配方"
     },
     "frame": "task",
     "show_toast": true,
