@@ -1,5 +1,6 @@
 package com.yxm.guamod;
 
+import com.yxm.guamod.init.ModEnchantments;
 import com.yxm.guamod.item.Moditems;
 import com.yxm.guamod.item.ZuanguaSword;
 import com.yxm.guamod.item.modfoods;
@@ -85,6 +86,7 @@ public class guaMod {
         // Register the Deferred Register to the mod event bus so items get registered
         ITEMS.register(modEventBus);
         modfoods.ITEMS.register(modEventBus);
+        ModEnchantments.ENCHANTMENTS.register(modEventBus);
         // Register the Deferred Register to the mod event bus so tabs get registered
         CREATIVE_MODE_TABS.register(modEventBus);
         Moditems.ITEMS.register(modEventBus);
