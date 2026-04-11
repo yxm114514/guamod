@@ -1,8 +1,8 @@
 package com.yxm.guamod;
 
 import com.yxm.guamod.init.ModEnchantments;
+import com.yxm.guamod.init.ModEntities;
 import com.yxm.guamod.item.Moditems;
-import com.yxm.guamod.item.ZuanguaSword;
 import com.yxm.guamod.item.modfoods;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
@@ -14,12 +14,7 @@ import com.mojang.logging.LogUtils;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.MapColor;
-import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
@@ -29,9 +24,7 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
-import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredHolder;
-import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import com.yxm.guamod.sound.ModSounds;
 
@@ -66,12 +59,8 @@ public class guaMod {
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> guatab = CREATIVE_MODE_TABS.register("guatab", () -> CreativeModeTab.builder()
             .title(Component.translatable("guaitemGroup.guamod")) //The language key for the title of your CreativeModeTab
             .withTabsBefore(CreativeModeTabs.COMBAT)
-            .icon(() -> Zuangua.get().getDefaultInstance())
-            .displayItems((parameters, output) -> {
-                output.accept(Zuangua);
-                output.accept(GOLDEN_GUA);
-                output.accept(ZUANGUA_SWORD);// Add the example item to the tab. For your own tabs, this method is preferred over the event
-            }).build());
+            .icon(() -> new ItemStack(Items.GOLD_INGOT))
+            .build());
 
 
     // 使用钻石剑的属性（攻击伤害+3，攻击速度-2.4），但自定义工具等级
@@ -86,7 +75,7 @@ public class guaMod {
         // Register the Deferred Register to the mod event bus so items get registered
         ITEMS.register(modEventBus);
         modfoods.ITEMS.register(modEventBus);
-        ModEnchantments.ENCHANTMENTS.register(modEventBus);
+        ModEntities.ENTITIES.register(modEventBus);
         // Register the Deferred Register to the mod event bus so tabs get registered
         CREATIVE_MODE_TABS.register(modEventBus);
         Moditems.ITEMS.register(modEventBus);
@@ -121,8 +110,10 @@ public class guaMod {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
-           // event.accept(EXAMPLE_BLOCK_ITEM);
+        if (event.getTabKey().equals(guatab.getKey())) {
+            event.accept(Zuangua.get());
+            event.accept(GOLDEN_GUA.get());
+            event.accept(ZUANGUA_SWORD.get());
         }
     }
    // SOUNDS.register(modEventBus);
