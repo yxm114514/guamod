@@ -3,7 +3,6 @@ package com.yxm.guamod;
 import com.yxm.guamod.init.ModEnchantments;
 import com.yxm.guamod.init.ModEntities;
 import com.yxm.guamod.item.Moditems;
-import com.yxm.guamod.item.modfoods;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.item.*;
@@ -30,7 +29,7 @@ import com.yxm.guamod.sound.ModSounds;
 
 import static com.yxm.guamod.item.Moditems.ZUANGUA_SWORD;
 import static com.yxm.guamod.item.Moditems.Zuangua;
-import static com.yxm.guamod.item.modfoods.GOLDEN_GUA;
+import static com.yxm.guamod.item.Moditems.GOLDEN_GUA;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(guaMod.MODID)
@@ -74,7 +73,6 @@ public class guaMod {
         BLOCKS.register(modEventBus);
         // Register the Deferred Register to the mod event bus so items get registered
         ITEMS.register(modEventBus);
-        modfoods.ITEMS.register(modEventBus);
         ModEntities.ENTITIES.register(modEventBus);
         // Register the Deferred Register to the mod event bus so tabs get registered
         CREATIVE_MODE_TABS.register(modEventBus);
@@ -86,13 +84,6 @@ public class guaMod {
         // Note that this is necessary if and only if we want *this* class (guaMod) to respond directly to events.
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
-
-        // Register the item to a creative tab
-        modEventBus.addListener(this::addCreative);
-
-        // Register our mod's ModConfigSpec so that FML can create and load the config file for us
-        modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
-
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {

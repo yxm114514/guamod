@@ -1,18 +1,15 @@
 package com.yxm.guamod.entity;
 
 import com.yxm.guamod.init.ModEntities;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.SynchedEntityData;
-import net.minecraft.world.entity.projectile.ItemSupplier;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 
-public class WatermelonBombEntity extends ThrowableProjectile implements ItemSupplier {
+public class WatermelonBombEntity extends ThrowableProjectile {
 
     public WatermelonBombEntity(EntityType<? extends ThrowableProjectile> entityType, Level level) {
         super(entityType, level);
@@ -42,13 +39,9 @@ public class WatermelonBombEntity extends ThrowableProjectile implements ItemSup
         }
     }
 
+    // 正确重写 defineSynchedData（带参数）
     @Override
     protected void defineSynchedData(SynchedEntityData.Builder builder) {
-        // 无需额外数据，留空即可
-    }
-
-    @Override
-    public Item getItem() {
-        return Items.MELON_SLICE;
+        // 无需同步数据
     }
 }

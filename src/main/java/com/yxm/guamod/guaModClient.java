@@ -32,6 +32,7 @@ public class guaModClient {
         guaMod.LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
     }
     // 注册实体渲染器
+
     @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(ModEntities.WATERMELON_BOMB.get(), WatermelonBombRenderer::new);
