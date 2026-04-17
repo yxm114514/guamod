@@ -12,6 +12,7 @@ import com.mojang.logging.LogUtils;
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.bus.api.IEventBus;
@@ -108,6 +109,18 @@ public class guaMod {
             event.accept(Zuangua.get());
             event.accept(GOLDEN_GUA.get());
             event.accept(ZUANGUA_SWORD.get());
+            // 2. 从事件提供的 HolderLookup.Provider 中获取附魔的 Holder
+            //    这是最安全的方式，直接使用了事件上下文中的注册表查找器
+            event.getParameters().holders().lookup(Registries.ENCHANTMENT)
+                    .flatMap(lookup -> lookup.get(ModEnchantments.BOOM_KEY))
+                    .ifPresent(boomHolder -> {
+                        // 创建附魔书物品栈
+                        ItemStack boomBook = new ItemStack(Moditems.BOOM_BOOK.get());
+                        // 为附魔书添加附魔
+                        boomBook.enchant(boomHolder, 1);
+                        // 将制作好的附魔书添加到创造模式物品栏
+                        event.accept(boomBook);
+                    });
         }
     }
    // SOUNDS.register(modEventBus);

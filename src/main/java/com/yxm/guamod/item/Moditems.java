@@ -48,4 +48,7 @@ public class Moditems {
         // 将物品注册表添加到 Mod 事件总线
         ITEMS.register(modBus);
     }
+    // 附魔书物品（与普通物品一样，不需要特殊类）
+    public static final DeferredItem<Item> BOOM_BOOK = ITEMS.register("boom_book",
+            () -> new Item(new Item.Properties().stacksTo(1)));  // 最大堆叠1个
 }

@@ -3,7 +3,7 @@
     "translate": "enchantment.guamod.boom"
   },
   "supported_items": "#minecraft:swords",
-  "weight": 10,
+  "weight": 100,
   "max_level": 1,
   "min_cost": {
     "base": 20,
