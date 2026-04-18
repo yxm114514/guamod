@@ -2,7 +2,7 @@
   "description": {
     "translate": "enchantment.guamod.boom"
   },
-  "supported_items": "#minecraft:swords",
+  "supported_items": "guamod:zuangua_sword",
   "weight": 100,
   "max_level": 1,
   "min_cost": {
