@@ -1,8 +1,9 @@
 {
-  "item.guamod.zuangua": "鑽瓜",
-  "guaitemGroup.guamod": "瓜模",
-  "item.guamod.zuangua_sword": "瓜之劍",
+  "item.guamod.zuangua": "§b§l§o鑽瓜§r§r§r",
+  "guaitemGroup.guamod": "瓜mod",
+  "item.guamod.zuangua_sword": "§a§n§l瓜§r§r§r§a§k§n§l劍§r§r§r§r§f之§r§4§n§m§l§r§r§r§r",
   "guamod.subtitle.attack_sound": "瓜劍：揮斬",
-  "item.guamod.golden_gua": "食瓜",
-  "enchantment.guamod.boom": "轟！"
+  "item.guamod.golden_gua": "金瓜",
+  "enchantment.guamod.boom": "§f§l轟§r§r§c§l！§r§r",
+  "entity.guamod.watermelon_bomb": "西瓜爆彈"
 }
