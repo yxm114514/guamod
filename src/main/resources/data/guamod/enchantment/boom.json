@@ -2,7 +2,9 @@
   "description": {
     "translate": "enchantment.guamod.boom"
   },
-  "supported_items": "guamod:zuangua_sword",
+  "supported_items": [
+    "guamod:zuangua_sword"
+  ],
   "weight": 1024,
   "max_level": 1,
   "min_cost": {
@@ -17,5 +19,28 @@
   "slots": [
     "mainhand"
   ],
-  "effects": {}
+  "effects": {
+    "minecraft:damage": [
+      {
+        "effect": {
+          "type": "minecraft:add",
+          "value": 0.0
+        },
+        "condition": [
+            {
+              "type": "minecraft:enchantment_level",
+              "level": 1
+            },
+            {
+              "type": "minecraft:damage_source_properties",
+              "properties": {
+                "is_direct": true,
+                "is_projectile": false
+              }
+            }
+          ]
+        }
+
+    ]
+  }
 }
