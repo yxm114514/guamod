@@ -40,6 +40,15 @@ public class ZuanguaSword extends SwordItem {
 
         if (boomLevel > 0) {
             if (!level.isClientSide) {
+                boolean isCreative = player.isCreative();
+                if (!isCreative) {
+                    // 生存模式：检查并消耗西瓜片
+                    if (player.getInventory().clearOrCountMatchingItems((itemStack) -> itemStack.is(net.minecraft.world.item.Items.MELON_SLICE), 1, player.getInventory()) < 1) {
+                        player.sendSystemMessage(net.minecraft.network.chat.Component.literal("西瓜片不足！"));
+                        return InteractionResultHolder.fail(stack);
+                    }
+                }
+                // 发射西瓜炸弹
                 WatermelonBombEntity bomb = new WatermelonBombEntity(level, player);
                 bomb.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 1.5F, 1.0F);
                 level.addFreshEntity(bomb);

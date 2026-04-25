@@ -5,5 +5,6 @@
   "guamod.subtitle.attack_sound": "瓜剑：挥砍",
   "item.guamod.golden_gua": "eat的瓜",
   "enchantment.guamod.boom": "§f§lBOOM§r§r§c§l!§r§r",
-  "entity.guamod.watermelon_bomb": "西瓜炸弹"
+  "entity.guamod.watermelon_bomb": "西瓜炸弹",
+  "death.attack.guamod.watermelon_bomb": "%1$s 被瓜之力炸死"
 }

@@ -1,11 +1,15 @@
 package com.yxm.guamod;
 
+import com.yxm.guamod.entity.WatermelonBombEntity;
+import com.yxm.guamod.init.ModDamageTypes;
 import com.yxm.guamod.init.ModEnchantments;
 import com.yxm.guamod.init.ModEntities;
 import com.yxm.guamod.item.Moditems;
+import com.yxm.guamod.item.ZuanguaSword;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.item.*;
+import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -127,5 +131,10 @@ public class guaMod {
     public void onServerStarting(ServerStartingEvent event) {
         // Do something when the server starts
         LOGGER.info("HELLO from server starting");
+    }
+
+    @SubscribeEvent
+    public void onLivingDeath(LivingDeathEvent event) {
+        // 死亡消息现在通过 DamageType 处理
     }
 }
