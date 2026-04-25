@@ -3,14 +3,9 @@ package com.yxm.guamod;
 import com.yxm.guamod.init.ModEnchantments;
 import com.yxm.guamod.init.ModEntities;
 import com.yxm.guamod.item.Moditems;
-import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
-import net.minecraft.core.Holder;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.item.*;
-import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.ItemEnchantments;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -32,9 +27,6 @@ import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import com.yxm.guamod.sound.ModSounds;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import static com.yxm.guamod.item.Moditems.ZUANGUA_SWORD;
 import static com.yxm.guamod.item.Moditems.Zuangua;

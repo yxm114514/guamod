@@ -49,6 +49,6 @@ public class Moditems {
         ITEMS.register(modBus);
     }
     // 附魔书物品（与普通物品一样，不需要特殊类）
-    public static final DeferredItem<Item> BOOM_BOOK = ITEMS.register("boom_book",
-            () -> new Item(new Item.Properties().stacksTo(1)));  // 最大堆叠1个
+   // public static final DeferredItem<Item> BOOM_BOOK = ITEMS.register("boom_book",
+  //          () -> new Item(new Item.Properties().stacksTo(1)));  // 最大堆叠1个
 }
