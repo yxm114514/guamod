@@ -63,7 +63,7 @@ public class guaMod {
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> guatab = CREATIVE_MODE_TABS.register("guatab", () -> CreativeModeTab.builder()
             .title(Component.translatable("guaitemGroup.guamod")) //The language key for the title of your CreativeModeTab
             .withTabsBefore(CreativeModeTabs.COMBAT)
-            .icon(() -> new ItemStack(Items.GOLD_INGOT))
+            .icon(() -> new ItemStack(Zuangua.get()))
             .build());
 
 
