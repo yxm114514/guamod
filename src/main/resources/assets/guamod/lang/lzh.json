@@ -5,5 +5,6 @@
   "guamod.subtitle.attack_sound": "瓜劍：揮斬",
   "item.guamod.golden_gua": "金瓜",
   "enchantment.guamod.boom": "§f§l轟§r§r§c§l！§r§r",
-  "entity.guamod.watermelon_bomb": "西瓜爆彈"
+  "entity.guamod.watermelon_bomb": "西瓜爆彈",
+  "item.guamod.err": "§ka§r§n§l§o右擊崩潰遊戲⚠§r§r§r§ka§r"
 }

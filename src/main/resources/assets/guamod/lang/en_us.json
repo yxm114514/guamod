@@ -5,5 +5,6 @@
   "guamod.subtitle.attack_sound": "Melon Sword: Swing",
   "item.guamod.golden_gua": "Golden Melon",
   "enchantment.guamod.boom": "§f§lBOOM§r§r§c§l!§r§r",
-  "entity.guamod.watermelon_bomb": "Watermelon Bomb"
+  "entity.guamod.watermelon_bomb": "Watermelon Bomb",
+  "item.guamod.err": "§ka§r§n§l§oRight-click to crash game⚠§r§r§r§ka§r"
 }

@@ -35,6 +35,7 @@ import com.yxm.guamod.sound.ModSounds;
 import static com.yxm.guamod.item.Moditems.ZUANGUA_SWORD;
 import static com.yxm.guamod.item.Moditems.Zuangua;
 import static com.yxm.guamod.item.Moditems.GOLDEN_GUA;
+import static com.yxm.guamod.item.Moditems.ERR;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(guaMod.MODID)
@@ -113,6 +114,7 @@ public class guaMod {
             event.accept(Zuangua.get());
             event.accept(GOLDEN_GUA.get());
             event.accept(ZUANGUA_SWORD.get());
+            event.accept(ERR.get());
             // 2. 从事件提供的 HolderLookup.Provider 中获取附魔的 Holder
             //    这是最安全的方式，直接使用了事件上下文中的注册表查找器
             event.getParameters().holders().lookup(Registries.ENCHANTMENT)
