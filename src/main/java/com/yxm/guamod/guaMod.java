@@ -99,6 +99,15 @@ public class guaMod {
         // Some common setup code
         LOGGER.info("HELLO FROM COMMON SETUP");
 
+        // Debug: 输出 BEI 实体是否已在注册表中
+        try {
+            var beiType = ModEntities.BEI.get();
+            var key = BuiltInRegistries.ENTITY_TYPE.getKey(beiType);
+            LOGGER.info("BEI registry key: {}", key);
+        } catch (Exception ex) {
+            LOGGER.warn("Unable to find BEI in registry during commonSetup: {}", ex.toString());
+        }
+
        // if (Config.LOG_DIRT_BLOCK.getAsBoolean()) {
        //     LOGGER.info("DIRT BLOCK >> {}", BuiltInRegistries.BLOCK.getKey(Blocks.DIRT));
        // }
@@ -115,6 +124,7 @@ public class guaMod {
             event.accept(GOLDEN_GUA.get());
             event.accept(ZUANGUA_SWORD.get());
             event.accept(ERR.get());
+            event.accept(Moditems.BEI_SPAWN_EGG.get());
             // 2. 从事件提供的 HolderLookup.Provider 中获取附魔的 Holder
             //    这是最安全的方式，直接使用了事件上下文中的注册表查找器
             event.getParameters().holders().lookup(Registries.ENCHANTMENT)

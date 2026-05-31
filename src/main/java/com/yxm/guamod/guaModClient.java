@@ -2,6 +2,7 @@ package com.yxm.guamod;
 
 import com.yxm.guamod.init.ModEntities;
 import com.yxm.guamod.renderer.WatermelonBombRenderer;
+import com.yxm.guamod.renderer.BeiRenderer;
 import net.minecraft.client.Minecraft;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -36,5 +37,7 @@ public class guaModClient {
     @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(ModEntities.WATERMELON_BOMB.get(), WatermelonBombRenderer::new);
+        // Register Bei renderer
+        event.registerEntityRenderer(ModEntities.BEI.get(), context -> new com.yxm.guamod.renderer.BeiRenderer(context));
     }
 }

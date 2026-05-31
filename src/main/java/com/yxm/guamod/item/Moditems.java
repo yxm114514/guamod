@@ -7,6 +7,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tiers;
 import net.neoforged.bus.api.IEventBus;
+import com.yxm.guamod.init.ModEntities;
+import net.minecraft.world.item.SpawnEggItem;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -44,6 +46,8 @@ public class Moditems {
                             .build())));
     public static final DeferredItem<ZuanguaSword> ZUANGUA_SWORD = ITEMS.register("zuangua_sword",
             () -> new ZuanguaSword(Tiers.DIAMOND, new Item.Properties().attributes(SwordItem.createAttributes(Tiers.DIAMOND, 500, -0.4F))));
+    public static final DeferredItem<Item> BEI_SPAWN_EGG = ITEMS.register("bei_spawn_egg",
+            () -> new SpawnEggItem(ModEntities.BEI.get(), 0xFF6B6B, 0x4B4BFF, new Item.Properties()));
     public static final DeferredItem<ErrItem> ERR = ITEMS.register("err",
             () -> new ErrItem(new Item.Properties()));
     public Moditems(IEventBus modBus) {
