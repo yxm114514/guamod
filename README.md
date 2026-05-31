@@ -10,3 +10,4 @@ Launch the game, and you’re all set!
 Additional Resources: 
 ==========
 Provide feedback:https://github.com/yxm114514/guamod
+thank you!
