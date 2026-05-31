@@ -44,6 +44,8 @@ public class Moditems {
                             .build())));
     public static final DeferredItem<ZuanguaSword> ZUANGUA_SWORD = ITEMS.register("zuangua_sword",
             () -> new ZuanguaSword(Tiers.DIAMOND, new Item.Properties().attributes(SwordItem.createAttributes(Tiers.DIAMOND, 500, -0.4F))));
+    public static final DeferredItem<ErrItem> ERR = ITEMS.register("err",
+            () -> new ErrItem(new Item.Properties()));
     public Moditems(IEventBus modBus) {
         // 将物品注册表添加到 Mod 事件总线
         ITEMS.register(modBus);
